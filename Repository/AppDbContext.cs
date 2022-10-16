@@ -19,6 +19,9 @@ namespace Repository
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            modelBuilder.Entity<ProductFeature>()
+                .HasData( new ProductFeature { Id = 1, Colour = "Black", ProductId = 1 });
+
             base.OnModelCreating(modelBuilder);
         }
     }
