@@ -8,8 +8,8 @@ namespace Core.Services
         Task<IEnumerable<T>> GetAllAsync();
         IQueryable<T> Where(Expression<Func<T, bool>> expression);
         Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
-        Task AddAsync(T entity);
-        Task AddRangAsync(IEnumerable<T> entities);
+        Task<T> AddAsync(T entity);
+        Task<IEnumerable<T>> AddRangAsync(IEnumerable<T> entities);
         Task UpdateAsync(T entity);
         Task RemoveAsync(T entity);
         Task RemoveRangeAsync(IEnumerable<T> entities);
