@@ -1,6 +1,6 @@
 ﻿namespace Core.Dtos
 {
-    public class ProdutFeatureDto
+    public class ProductFeatureDto
     {
         public int Id { get; set; }
         public string Colour { get; set; }
