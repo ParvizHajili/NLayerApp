@@ -12,20 +12,18 @@ namespace WebAPI.Controllers
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Product> _productService;
-        private readonly IProductService _service;
+        private readonly IProductService _productService;
 
-        public ProductsController(IService<Product> productService, IMapper mapper, IProductService service)
+        public ProductsController(IMapper mapper, IProductService productService)
         {
-            _productService = productService;
             _mapper = mapper;
-            _service = service;
+            _productService = productService;
         }
 
         [HttpGet("[action]")]
         public async Task<IActionResult> GetProductsWithCategory()
         {
-            return CreateActionResult(await _service.GetProductsWithCategory());
+            return CreateActionResult(await _productService.GetProductsWithCategory());
         }
 
         [HttpGet]
