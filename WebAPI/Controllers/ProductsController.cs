@@ -2,7 +2,6 @@
 using Core.Dtos;
 using Core.Entities;
 using Core.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
