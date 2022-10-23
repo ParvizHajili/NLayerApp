@@ -12,6 +12,7 @@ using Service.Services;
 using Service.Validations;
 using System.Reflection;
 using WebAPI.Filters;
+using WebAPI.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute()))
     .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+
+//builder.Services.Configure<ApiBehaviorOptions>(options =>
+//{
+//    options.SuppressModelStateInvalidFilter = true;
+
+//});
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -49,6 +56,7 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -58,8 +66,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCustomException();
+
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();
