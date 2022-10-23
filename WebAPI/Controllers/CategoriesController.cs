@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class CategoriesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
