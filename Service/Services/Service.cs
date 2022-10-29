@@ -48,7 +48,7 @@ namespace Service.Services
 
             if (hasProduct == null)
             {
-                throw new NotFoundExcepiton($"{typeof(T).Name}({id}) not found");
+                throw new NotFoundException($"{typeof(T).Name}({id}) not found");
             }
             return hasProduct;
         }
